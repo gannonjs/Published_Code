@@ -1,7 +1,7 @@
 # Intent is to perform a high level sky subtraction using PCA decomposition of spectra from offset sky frames
 # By Jonah Gannon June 2019 major update Nov 2019
 # PhD student @ Swinburne university
-# Works on Lunix 18.04
+# Works on Ubuntu 18.04 LTS
 
 # Thanks go to Dr Ned Taylor for advice on the best way to structure the code
 

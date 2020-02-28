@@ -8,7 +8,7 @@ feel free to contact me: jonah.gannon@gmail.com
 
 MIT License
 
-Copyright (c) 2020 Jonah Samuel Gannon
+Copyright (c) 2020 Jonah Gannon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

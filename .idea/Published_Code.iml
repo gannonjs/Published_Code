@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="R User Library" level="project" />
+    <orderEntry type="library" name="R Skeletons" level="application" />
+    <orderEntry type="module" module-name="KCWI_Routines" />
+    <orderEntry type="module" module-name="MUSE_Routines" />
+    <orderEntry type="module" module-name="Plotting" />
+    <orderEntry type="module" module-name="Photometry" />
+    <orderEntry type="module" module-name="Jupyter_Notebooks" />
+    <orderEntry type="module" module-name="Leo_UDG" />
+    <orderEntry type="module" module-name="5846_UDG1_letter" />
+    <orderEntry type="module" module-name="Perseus_UDGs" />
+  </component>
+</module>

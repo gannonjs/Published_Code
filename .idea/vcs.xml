@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../5846_UDG1_letter" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Jupyter_Notebooks" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../KCWI_Routines" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Leo_UDG" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Perseus_UDGs" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Photometry" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Plotting" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />

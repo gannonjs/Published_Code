@@ -15,5 +15,11 @@
     <orderEntry type="module" module-name="5846_UDG1_letter" />
     <orderEntry type="module" module-name="Perseus_UDGs" />
     <orderEntry type="module" module-name="KCWI_Routines" />
+    <orderEntry type="module" module-name="Photometry" />
+    <orderEntry type="module" module-name="KCWI_Routines" />
+    <orderEntry type="module" module-name="Jupyter_Notebooks" />
+    <orderEntry type="module" module-name="Plotting" />
+    <orderEntry type="module" module-name="Perseus_UDGs" />
+    <orderEntry type="module" module-name="Leo_UDG" />
   </component>
 </module>

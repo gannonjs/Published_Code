@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Jupyter_Notebooks/.idea/Jupyter_Notebooks.iml" filepath="$PROJECT_DIR$/../Jupyter_Notebooks/.idea/Jupyter_Notebooks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../KCWI_Routines/.idea/KCWI_Routines.iml" filepath="$PROJECT_DIR$/../KCWI_Routines/.idea/KCWI_Routines.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Leo_UDG/.idea/Leo_UDG.iml" filepath="$PROJECT_DIR$/../Leo_UDG/.idea/Leo_UDG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Perseus_UDGs/.idea/Perseus_UDGs.iml" filepath="$PROJECT_DIR$/../Perseus_UDGs/.idea/Perseus_UDGs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Photometry/.idea/Photometry.iml" filepath="$PROJECT_DIR$/../Photometry/.idea/Photometry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Plotting/.idea/Plotting.iml" filepath="$PROJECT_DIR$/../Plotting/.idea/Plotting.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Published_Code.iml" filepath="$PROJECT_DIR$/.idea/Published_Code.iml" />
     </modules>
   </component>

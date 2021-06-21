@@ -21,5 +21,6 @@
     <orderEntry type="module" module-name="Plotting" />
     <orderEntry type="module" module-name="Perseus_UDGs" />
     <orderEntry type="module" module-name="Leo_UDG" />
+    <orderEntry type="module" module-name="gannonjs.github.io" />
   </component>
 </module>

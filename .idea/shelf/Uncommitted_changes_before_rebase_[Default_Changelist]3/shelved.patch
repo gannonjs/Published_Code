@@ -1,0 +1,185 @@
+Index: ../Perseus_UDGs/carleton_mhalo_init_to_final.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Perseus_UDGs/carleton_mhalo_init_to_final.py b/../Perseus_UDGs/carleton_mhalo_init_to_final.py
+new file mode 100644
+--- /dev/null	(date 1624246807111)
++++ b/../Perseus_UDGs/carleton_mhalo_init_to_final.py	(date 1624246807111)
+@@ -0,0 +1,117 @@
++# aim is to create a plot that shows initial and final halo masses for GC rich UDGs from carleton
++
++import matplotlib.pyplot as plt
++import numpy as np
++import matplotlib.gridspec as gridspec
++
++######################################### user inputs ##################################################################
++
++carleton_loc = "/mnt/d/Ubuntu/Perseus_paper/data/carleton_gcdatforjonah_udg_v2.txt"
++
++########################################################################################################################
++
++plt.rcParams.update({'font.size': 18})
++plt.rcParams.update({'axes.linewidth': 3})
++plt.rcParams.update({'xtick.major.width':3})
++plt.rcParams.update({'ytick.major.width':3})
++
++plt.rcParams.update({'xtick.minor.width':3})
++plt.rcParams.update({'ytick.minor.width':3})
++
++plt.rcParams.update({'xtick.minor.size':8})
++plt.rcParams.update({'ytick.minor.size':8})
++
++plt.rcParams.update({'xtick.major.size':10})
++plt.rcParams.update({'ytick.major.size':10})
++plt.rcParams.update({'figure.autolayout': True})
++
++
++carleton_data = np.genfromtxt(carleton_loc, delimiter = ",", skip_header = 1)
++
++stripped_mass = (carleton_data[:,7] - carleton_data[:,4]) / carleton_data[:, 7]
++
++########################################################################################################################
++
++
++y_vals = np.linspace(0, 110, 1000)
++
++bf_x_vals = 5*10**9 * y_vals
++
++fig = plt.figure(1, figsize=(18,6))
++gs = gridspec.GridSpec(1,3,figure=fig)
++
++ax0 = plt.subplot(gs[0])
++ax1 = plt.subplot(gs[1], sharey = ax0)
++ax2 = plt.subplot(gs[2], sharey = ax0)
++gs.update(wspace = 0, hspace = 0)
++ax0.tick_params(direction = 'in', labelbottom = True, labelleft= True, length = 5, width = 3, bottom = True, left = True, right = False, top = True, which = 'both')
++ax1.tick_params(direction = 'in', labelbottom = True, labelleft= False, length = 5, width = 3, bottom = True, left = True, right = True, top = True, which = 'both')
++ax2.tick_params(direction = 'in', labelbottom = True, labelleft= False, length = 5, width = 3, bottom = True, left = True, right = True, top = True, which = 'both')
++
++ax0.set_ylabel("$N_{GC}$")
++ax0.set_yscale("Log")
++ax0.set_ylim([0.9, 100])
++
++### Plot 1 initial halo masses
++
++ax0.plot(carleton_data[:, 7], carleton_data[:, 2], linestyle = 'none', marker = ".", c = "black", label = "Careleton+ (2021)")
++ax0.set_xscale("Log")
++ax0.set_xlabel("Inital Halo Mass [$\mathrm{M_{\odot}}$]")
++
++ax0.set_xlim([8*10**7, 5* 10**11])
++
++ax0.plot(bf_x_vals, y_vals, "r-", lw=2, label = "Burkert & Forbes (2019)")
++
++ax0.legend()
++
++### Plot 2 final masses
++
++ax1.plot(carleton_data[:,4], carleton_data[:, 2], linestyle = 'none', marker = ".", c = "black")
++ax1.set_xscale("Log")
++ax1.set_xlabel("z=0 Halo Mass [$\mathrm{M_{\odot}}$]")
++
++ax1.set_xlim([8*10**7, 5* 10**11])
++ax1.plot(bf_x_vals, y_vals, "r-", lw=2)
++
++### Fraction stripped
++
++ax2.plot(stripped_mass, carleton_data[:, 2], linestyle = 'none', marker = ".", c = "black")
++ax2.set_xscale("Log")
++ax2.set_xlabel("Fraction of Initial Mass Remaining")
++
++
++plt.show()
++
++################################### Plot 2 some Histograms #############################################################
++
++bins = np.log10(np.array([10**8, 10**8.5, 10**9, 10**9.5, 10**10, 10**10.5, 10**11, 10**11.5, 10**12, 10**12.5]))
++
++fig2 = plt.figure(2, figsize=(10,8))
++ax = plt.subplot(111)
++
++ax.hist(np.log10(carleton_data[:, 4]), color = "red", histtype = "step", bins = bins, label = "Carleton+ (2021) - $z=0$")
++ax.hist(np.log10(carleton_data[:, 7]), color = "blue", histtype = "step", bins = bins, label = "Carleton+ (2021) - $z_{initial}$")
++ax.hist(np.log10(carleton_data[:, 2] * 5 * 10**9), color = "green", histtype = "step", bins = bins, label = "Carleton+ (2021) - Burkert & Forbes (2019)")
++
++ax.set_xlabel("Log($M_{Halo}$) [$\mathrm{M_{\odot}}$]")
++ax.set_ylabel("N")
++plt.legend()
++
++ax.set_ylim([0, 175])
++
++plt.show()
++
++
++################ third plot of fractions
++
++fig3 = plt.figure(3, figsize=(10,8))
++ax = plt.subplot(111)
++
++ax.hist(np.log10(stripped_mass), color = "black", histtype = "step")
++
++ax.set_xlabel("Log(Fraction of Initial Mass Remaining)")
++ax.set_ylabel("N")
++
++# ax.set_ylim([0, 175])
++
++plt.show()
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectModuleManager\">\n    <modules>\n      <module fileurl=\"file://$PROJECT_DIR$/../Jupyter_Notebooks/.idea/Jupyter_Notebooks.iml\" filepath=\"$PROJECT_DIR$/../Jupyter_Notebooks/.idea/Jupyter_Notebooks.iml\" />\n      <module fileurl=\"file://$PROJECT_DIR$/../KCWI_Routines/.idea/KCWI_Routines.iml\" filepath=\"$PROJECT_DIR$/../KCWI_Routines/.idea/KCWI_Routines.iml\" />\n      <module fileurl=\"file://$PROJECT_DIR$/../Leo_UDG/.idea/Leo_UDG.iml\" filepath=\"$PROJECT_DIR$/../Leo_UDG/.idea/Leo_UDG.iml\" />\n      <module fileurl=\"file://$PROJECT_DIR$/../Perseus_UDGs/.idea/Perseus_UDGs.iml\" filepath=\"$PROJECT_DIR$/../Perseus_UDGs/.idea/Perseus_UDGs.iml\" />\n      <module fileurl=\"file://$PROJECT_DIR$/../Photometry/.idea/Photometry.iml\" filepath=\"$PROJECT_DIR$/../Photometry/.idea/Photometry.iml\" />\n      <module fileurl=\"file://$PROJECT_DIR$/../Plotting/.idea/Plotting.iml\" filepath=\"$PROJECT_DIR$/../Plotting/.idea/Plotting.iml\" />\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/Published_Code.iml\" filepath=\"$PROJECT_DIR$/.idea/Published_Code.iml\" />\n    </modules>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision d23cfc38176213b322bac6828f1caec198549e6a)
++++ b/.idea/modules.xml	(date 1624246807099)
+@@ -9,6 +9,7 @@
+       <module fileurl="file://$PROJECT_DIR$/../Photometry/.idea/Photometry.iml" filepath="$PROJECT_DIR$/../Photometry/.idea/Photometry.iml" />
+       <module fileurl="file://$PROJECT_DIR$/../Plotting/.idea/Plotting.iml" filepath="$PROJECT_DIR$/../Plotting/.idea/Plotting.iml" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/Published_Code.iml" filepath="$PROJECT_DIR$/.idea/Published_Code.iml" />
++      <module fileurl="file://$PROJECT_DIR$/../gannonjs.github.io/.idea/gannonjs.github.io.iml" filepath="$PROJECT_DIR$/../gannonjs.github.io/.idea/gannonjs.github.io.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"VcsDirectoryMappings\">\n    <mapping directory=\"$PROJECT_DIR$/../5846_UDG1_letter\" vcs=\"Git\" />\n    <mapping directory=\"$PROJECT_DIR$/../Jupyter_Notebooks\" vcs=\"Git\" />\n    <mapping directory=\"$PROJECT_DIR$/../KCWI_Routines\" vcs=\"Git\" />\n    <mapping directory=\"$PROJECT_DIR$/../Leo_UDG\" vcs=\"Git\" />\n    <mapping directory=\"$PROJECT_DIR$/../Perseus_UDGs\" vcs=\"Git\" />\n    <mapping directory=\"$PROJECT_DIR$/../Photometry\" vcs=\"Git\" />\n    <mapping directory=\"$PROJECT_DIR$/../Plotting\" vcs=\"Git\" />\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision d23cfc38176213b322bac6828f1caec198549e6a)
++++ b/.idea/vcs.xml	(date 1624246807103)
+@@ -9,5 +9,6 @@
+     <mapping directory="$PROJECT_DIR$/../Photometry" vcs="Git" />
+     <mapping directory="$PROJECT_DIR$/../Plotting" vcs="Git" />
+     <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$/../gannonjs.github.io" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/Published_Code.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"PYTHON_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\">\n    <content url=\"file://$MODULE_DIR$\" />\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n    <orderEntry type=\"library\" name=\"R User Library\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"R Skeletons\" level=\"application\" />\n    <orderEntry type=\"module\" module-name=\"KCWI_Routines_old\" />\n    <orderEntry type=\"module\" module-name=\"MUSE_Routines\" />\n    <orderEntry type=\"module\" module-name=\"Plotting\" />\n    <orderEntry type=\"module\" module-name=\"Photometry\" />\n    <orderEntry type=\"module\" module-name=\"Jupyter_Notebooks\" />\n    <orderEntry type=\"module\" module-name=\"Leo_UDG\" />\n    <orderEntry type=\"module\" module-name=\"5846_UDG1_letter\" />\n    <orderEntry type=\"module\" module-name=\"Perseus_UDGs\" />\n    <orderEntry type=\"module\" module-name=\"KCWI_Routines\" />\n    <orderEntry type=\"module\" module-name=\"Photometry\" />\n    <orderEntry type=\"module\" module-name=\"KCWI_Routines\" />\n    <orderEntry type=\"module\" module-name=\"Jupyter_Notebooks\" />\n    <orderEntry type=\"module\" module-name=\"Plotting\" />\n    <orderEntry type=\"module\" module-name=\"Perseus_UDGs\" />\n    <orderEntry type=\"module\" module-name=\"Leo_UDG\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Published_Code.iml b/.idea/Published_Code.iml
+--- a/.idea/Published_Code.iml	(revision d23cfc38176213b322bac6828f1caec198549e6a)
++++ b/.idea/Published_Code.iml	(date 1624246807107)
+@@ -21,5 +21,6 @@
+     <orderEntry type="module" module-name="Plotting" />
+     <orderEntry type="module" module-name="Perseus_UDGs" />
+     <orderEntry type="module" module-name="Leo_UDG" />
++    <orderEntry type="module" module-name="gannonjs.github.io" />
+   </component>
+ </module>
+\ No newline at end of file
+diff --git a/../KCWI_Routines/important_Test.py b/../KCWI_Routines/important_Test.py
+deleted file mode 100644

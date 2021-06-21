@@ -9,5 +9,6 @@
     <mapping directory="$PROJECT_DIR$/../Photometry" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Plotting" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../gannonjs.github.io" vcs="Git" />
   </component>
 </project>

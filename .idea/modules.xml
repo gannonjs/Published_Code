@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/../Photometry/.idea/Photometry.iml" filepath="$PROJECT_DIR$/../Photometry/.idea/Photometry.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Plotting/.idea/Plotting.iml" filepath="$PROJECT_DIR$/../Plotting/.idea/Plotting.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Published_Code.iml" filepath="$PROJECT_DIR$/.idea/Published_Code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../gannonjs.github.io/.idea/gannonjs.github.io.iml" filepath="$PROJECT_DIR$/../gannonjs.github.io/.idea/gannonjs.github.io.iml" />
     </modules>
   </component>
 </project>
